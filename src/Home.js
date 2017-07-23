@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
-import { Image, Container, Grid } from 'semantic-ui-react'
 import DemoCounter from './DemoCounter.js'
+import AddDemo from './AddDemo.js'
+import {Jumbotron, Button, Grid, Row, Col} from 'react-bootstrap'
 class Home extends Component {
   render() {
     return (
       <div>
-          <Grid container columns='equal'>
-            <Grid.Row stretched >
-              <Grid.Column>
-                <Image src='https://ssl.c.photoshelter.com/img-get/I0000IjSIzvRNSJo/s/860/860/Bluebonnet-Field-at-Sunrise-near-Llano-Texas.jpg' fluid />
-              </Grid.Column>
-              <Grid.Column floated='right'>
-                <DemoCounter floated='right'/>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
+      <Grid>
+        <Row>
+      <Jumbotron>
+         <h1>Hello, world!</h1>
+         <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+         <p><Button bsStyle="primary">Learn more</Button></p>
+         <DemoCounter floated='right'/>
+      </Jumbotron>
+        </Row>
+        <Row>
+          <AddDemo/>
+        </Row>
+
+      </Grid>
+
       </div>
     );
   }

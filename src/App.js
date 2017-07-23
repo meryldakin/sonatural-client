@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Home from './Home.js'
-import Navbar from './Navbar.js'
+import Navigation from './Navbar.js'
 
 class App extends Component {
   render() {
     return (
       <div>
-      <Navbar/>
+      <Navigation/>
       <Home/>
       </div>
     );
