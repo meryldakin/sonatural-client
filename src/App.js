@@ -1,33 +1,25 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import Home from './Home.js'
 import Navigation from './Navbar.js'
 import Login from './login/'
+import { withRouter } from 'react-router'
+
 
 class App extends Component {
   render() {
-    const href = window.location.pathname.slice(1)
-
-    const Path = () => {
-      switch(href) {
-        case "Home":
-          return <Home />
-          break;
-        case "login":
-          return <Login />
-          break;
-        default:
-          return <Home />
-      }
-    }
     return (
       <div>
       <Navigation/>
-      {Path()}
+      <Switch >
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+      </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
