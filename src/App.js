@@ -7,6 +7,9 @@ import Navigation from './Navbar.js'
 import Login from './login/'
 import { withRouter } from 'react-router'
 
+import { connect } from 'react-redux'
+import * as actions from './actions'
+
 
 class App extends Component {
   render() {
@@ -21,5 +24,11 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    demos: state.demos,
+    loading: state.loading
+  }
+}
 
-export default withRouter(App);
+export default withRouter(connect(mapStateToProps, actions)(App))
