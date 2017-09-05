@@ -1,6 +1,11 @@
-import React, { Component } from 'react';
-import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
-import useSheet from 'react-jss';
+import React, { Component } from "react";
+import {
+  FormGroup,
+  ControlLabel,
+  FormControl,
+  HelpBlock
+} from "react-bootstrap";
+import useSheet from "react-jss";
 
 const styles = {
   container: {
@@ -9,7 +14,7 @@ const styles = {
   form: {
     padding: "15px 15px 15px 15px"
   }
-}
+};
 
 function FieldGroup({ id, label, help, ...props }) {
   return (
@@ -39,6 +44,7 @@ class LoginForms extends Component {
             label="Password"
             type="password"
           />
+          <input type="submit" />
         </form>
       </div>
     );
