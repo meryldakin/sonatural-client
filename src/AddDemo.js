@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { FormGroup, FormControl, ControlLabel, Button } from "react-bootstrap";
 import Datetime from "react-datetime";
 import moment from "moment";
-export default class AddDemo extends Component {
+import { connect } from "react-redux";
+import * as actions from "./actions";
+
+class AddDemo extends Component {
   constructor() {
     super();
     this.state = {
@@ -28,7 +31,10 @@ export default class AddDemo extends Component {
     console.log(this.state);
   };
 
-  handleAddDemo = () => {};
+  handleAddDemo = e => {
+    e.preventDefault();
+    this.props.addDemo(this.state);
+  };
 
   FieldGroup({ id, label, help, ...props }) {
     return (
@@ -43,7 +49,7 @@ export default class AddDemo extends Component {
       <div>
         <div>
           <h1>Add Demo</h1>
-          <form>
+          <form onSubmit={this.handleAddDemo}>
             <FormGroup controlId="line" onChange={this.handleChange}>
               <ControlLabel>Line</ControlLabel>
               <FormControl componentClass="select" placeholder="select">
@@ -80,3 +86,11 @@ export default class AddDemo extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    demos: state.demos,
+    loading: state.loading
+  };
+};
+export default connect(mapStateToProps, actions)(AddDemo);

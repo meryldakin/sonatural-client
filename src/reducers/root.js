@@ -15,6 +15,18 @@ const reducer = (state = defaultState, action) => {
         demos: action.payload,
         loading: false
       };
+    case "START_ADD_DEMO":
+      return {
+        ...state,
+        demos: [],
+        loading: false
+      };
+    case "ADD_DEMO":
+      return {
+        ...state,
+        demos: [...this.state.demos, action.payload],
+        loading: false
+      };
     default:
       return state;
   }
